@@ -3,7 +3,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { TaskForm } from './components/TaskForm';
 import { TaskItem } from './components/TaskItem';
 import { supabase } from './lib/supabase';
-import type { Task, CreateTaskInput } from './types/task';
+import type { Task, CreateTaskInput } from './types/tasks';
 import { ClipboardList } from 'lucide-react';
 
 function App() {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
-import type { CreateTaskInput } from '../types/task';
+import type { CreateTaskInput } from '../types/tasks';
 
 interface TaskFormProps {
   onSubmit: (task: CreateTaskInput) => Promise<void>;

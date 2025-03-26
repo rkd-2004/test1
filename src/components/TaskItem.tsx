@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trash2, Edit2, Check, X } from 'lucide-react';
-import type { Task } from '../types/task';
+import type { Task } from '../types/tasks';
 
 interface TaskItemProps {
   task: Task;
