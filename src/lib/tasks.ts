@@ -1,32 +1,22 @@
+// src/lib/tasks.ts
 import { supabase } from './supabase'
-import { Task, TaskInsert } from './types/tasks'
 
-export const fetchTasks = async (): Promise<Task[]> => {
+// Remove user_id from all queries
+export const fetchTasks = async () => {
   const { data, error } = await supabase
     .from('tasks')
     .select('*')
     .order('created_at', { ascending: false })
 
-  if (error) throw error
-  return data
+  return data || []
 }
 
-export const createTask = async (task: TaskInsert): Promise<Task> => {
-  const { data, error } = await supabase
+export const createTask = async (title: string) => {
+  const { data } = await supabase
     .from('tasks')
-    .insert(task)
+    .insert({ title, completed: false })
     .select()
     .single()
 
-  if (error) throw error
   return data
-}
-
-export const toggleTask = async (id: number, is_complete: boolean): Promise<void> => {
-  const { error } = await supabase
-    .from('tasks')
-    .update({ is_complete })
-    .eq('id', id)
-
-  if (error) throw error
 }
